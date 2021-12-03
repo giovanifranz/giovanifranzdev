@@ -5,7 +5,6 @@ export const Container = styled.main`
 `;
 
 export const Content = styled.section`
-  padding: 400px 0;
   width: 100%;
   display: flex;
   flex-direction: column;

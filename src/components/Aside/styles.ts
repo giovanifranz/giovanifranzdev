@@ -2,9 +2,12 @@ import styled from "@emotion/styled";
 
 export const Aside = styled.aside`
   height: 100vh;
-  width: 48px;
-  margin-left: 4rem;
+  width: 12rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
+  border-right: 1px solid var(--blue);
 `;
 
 export const Content = styled.div`

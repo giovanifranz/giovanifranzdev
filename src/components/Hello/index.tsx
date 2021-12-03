@@ -1,7 +1,10 @@
 import { Section } from "./styles";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
 
 export default function Hello() {
+  const router = useRouter();
+
   return (
     <Section>
       <h6>Olá, meu nome é:</h6>
@@ -12,7 +15,7 @@ export default function Hello() {
         sempre estudando e testando tecnologias novas. Venha me conhecer{" "}
         <span>&#128075;</span>
       </p>
-      <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+      <motion.button onClick={() => router.push('/work')} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
         Mais informações
       </motion.button>
     </Section>

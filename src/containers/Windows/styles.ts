@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
 
 export const Section = styled.section`
-  height: 100%;
   border: 1px solid var(--blue);
   border-radius: 0.5rem;
   background-color: var(--black);
   z-index: 999;
   box-shadow: var(--blue) 0.25rem 0.25rem 0.25rem;
+  margin-top: 150px;
 
   header {
     width: 100%;
@@ -22,5 +22,15 @@ export const Section = styled.section`
   h2 {
     font-size: 2rem;
     margin-bottom: 3rem;
+  }
+
+  button {
+    background: transparent;
+    border: none;
+    color: var(--blue);
+  }
+
+  button:hover {
+    filter: brightness(1.2);
   }
 `;

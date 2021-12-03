@@ -4,7 +4,7 @@ import Windows from "../../containers/Windows";
 
 export default function About() {
   return (
-    <Windows width="1140px">
+    <Windows width="1140px" height="700px">
       <Article>
         <div>
           <h2>Sobre mim</h2>

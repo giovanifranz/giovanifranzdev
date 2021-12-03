@@ -8,7 +8,6 @@ export default function Aside() {
         <FaFacebook className="icon" size={32} />
         <FaLinkedin className="icon" size={32} />
         <FaGithub className="icon" size={32} />
-
         <div />
       </Content>
     </AsideComponent>
