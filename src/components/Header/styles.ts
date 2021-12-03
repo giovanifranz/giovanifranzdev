@@ -11,7 +11,7 @@ export const Container = styled.header`
   box-shadow: 0px 1px 1px var(--blue);
   position: fixed;
 
-  z-index: 99999;
+  z-index: 9999;
   background-color: var(--black);
 `;
 

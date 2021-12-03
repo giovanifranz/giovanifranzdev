@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 
-export const Section = styled.section`
+export const Box = styled.div`
   width: 720px;
+  z-index: 0;
 
   h6 {
     font-size: 1.25rem;

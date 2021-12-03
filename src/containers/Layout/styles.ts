@@ -10,8 +10,4 @@ export const Content = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  section + section {
-    margin-top: 20rem;
-  }
 `;

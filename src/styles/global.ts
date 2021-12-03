@@ -56,9 +56,17 @@ export const GlobalStyles = css`
   button {
     cursor: pointer;
   }
+  
+  a {
+    color: var(--white);
+  }
+
+  a:hover {
+    filter: brightness(0.8);
+  }
+
   [disable] {
     opacity: 0.6;
     cursor: not-allowed;
   }
-
 `;
