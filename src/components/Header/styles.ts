@@ -8,10 +8,10 @@ export const Container = styled.header`
   align-items: center;
   justify-content: space-between;
  
-  box-shadow: 0px 2px 1px var(--blue);
+  box-shadow: 0px 1px 1px var(--blue);
   position: fixed;
 
-  z-index: 999;
+  z-index: 99999;
   background-color: var(--black);
 `;
 

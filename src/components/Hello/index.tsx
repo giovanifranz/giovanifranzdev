@@ -1,4 +1,5 @@
 import { Section } from "./styles";
+import { motion } from "framer-motion";
 
 export default function Hello() {
   return (
@@ -11,8 +12,9 @@ export default function Hello() {
         sempre estudando e testando tecnologias novas. Venha me conhecer{" "}
         <span>&#128075;</span>
       </p>
-
-      <button>Mais informações</button>
+      <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+        Mais informações
+      </motion.button>
     </Section>
   );
 }
