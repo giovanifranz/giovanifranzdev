@@ -19,14 +19,18 @@ export const Box = styled.div`
   position: fixed;
   bottom: 0;
 
-  a {
+  div {
     margin-bottom: 2rem;
-    color: var(--white);
   }
 
-  div {
+  a:hover {
+    color: var(--blue);
+  }
+
+  #line {
     background-color: var(--white);
     height: 120px;
     width: 1px;
+    margin-bottom: 0;
   }
 `;

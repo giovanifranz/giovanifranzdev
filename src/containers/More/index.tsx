@@ -1,44 +1,51 @@
-import Windows from "../Windows";
 import Image from "next/image";
 import { useQuery } from "react-query";
 import { api } from "../../service/api";
 import { Section } from "./styles";
-import { AiOutlineMail } from "react-icons/ai";
+import { AiOutlineMail, AiOutlineArrowDown } from "react-icons/ai";
 import NextLink from "next/link";
-
+import Button from "../../components/Button";
+import { useRouter } from "next/router";
 export default function More() {
-  const { data, isLoading } = useQuery("github", async () =>
+  const Github = useQuery("github", async () =>
     api.get("/giovanifranz").then((res) => res.data)
   );
-  console.log(data);
+
+  const router = useRouter();
+
+  function handleClick() {
+    setTimeout(() => {
+      router.push("/repos");
+    }, 250);
+  }
 
   return (
     <>
-      {data && !isLoading && (
+      {Github.data && !Github.isLoading && (
         <Section>
           <article>
-            <Image src={data.avatar_url} height={200} width={200} priority />
+            <Image
+              src={Github.data.avatar_url}
+              height={200}
+              width={200}
+              priority
+            />
             <div>
               <p>
-                {data.bio}
+                {Github.data.bio}
                 <br />
                 <br />
-                Company: {data.company}
-                <br />
-                <br />
-                <div>
-                  <AiOutlineMail size={32} />
-                  <NextLink href={`mailto:${data.email}`}>
-                    <a>{data.email}</a>
-                  </NextLink>
-                </div>
+                Company: {Github.data.company}
               </p>
+              <div>
+                <AiOutlineMail size={32} />
+                <NextLink href={`mailto:${Github.data.email}`}>
+                  <a>{Github.data.email}</a>
+                </NextLink>
+              </div>
             </div>
           </article>
-
-          <h2>Portifólio</h2>
-          <p>public_repos:{data.public_repos}</p>
-          <p>repos_url:{data.repos_url}</p>
+          <Button onClick={handleClick}>Repositórios <AiOutlineArrowDown className="icon" size={30}/></Button>
         </Section>
       )}
     </>

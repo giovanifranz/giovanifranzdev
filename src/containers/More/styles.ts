@@ -1,29 +1,34 @@
 import styled from "@emotion/styled";
 
 export const Section = styled.section`
-  width: 720px;
   z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   article {
+    width: 740px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     div {
-      width: 480px;
+      width: 500px;
 
       p {
-        div {
-          display: flex;
-          align-items: center;
+        margin-bottom: 1rem;
+      }
 
-          a {
-            margin-left: 1rem;
-          }
+      div {
+        display: flex;
+        align-items: center;
 
-          a:hover {
-            color: var(--blue);
-          }
+        a {
+          margin-left: 1rem;
+        }
+
+        a:hover {
+          color: var(--blue);
         }
       }
     }
@@ -31,5 +36,9 @@ export const Section = styled.section`
   h2 {
     font-size: 2.5rem;
     margin: 2rem 0;
+  }
+
+  button {
+    margin-top: 3rem;
   }
 `;

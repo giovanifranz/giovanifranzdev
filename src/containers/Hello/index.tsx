@@ -1,7 +1,8 @@
 import { Box } from "./styles";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useState } from "react"
+import Button from "../../components/Button";
 
 export default function Hello() {
   const [isVisible, setIsVisible] = useState(true);
@@ -30,7 +31,11 @@ export default function Hello() {
   }
 
   return (
-    <motion.article variants={containerVariants} initial="hidden" animate="visible">
+    <motion.article
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <AnimatePresence>
         {isVisible && (
           <MotionBox exit={{ x: -1500 }}>
@@ -42,13 +47,7 @@ export default function Hello() {
               estou sempre estudando e testando tecnologias novas. Venha me
               conhecer <span>&#128075;</span>
             </p>
-            <motion.button
-              onClick={handleClick}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              Mais informações
-            </motion.button>
+            <Button onClick={handleClick}>Mais informações</Button>
           </MotionBox>
         )}
       </AnimatePresence>

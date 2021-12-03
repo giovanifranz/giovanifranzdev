@@ -4,7 +4,6 @@ import { Global } from "@emotion/react";
 import { GlobalStyles } from "../styles/global";
 import LayoutProvider from "../containers/Layout";
 import { QueryClientProvider, QueryClient } from "react-query";
-
 function MyApp({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient();
   return (

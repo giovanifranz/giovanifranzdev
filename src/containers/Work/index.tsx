@@ -1,4 +1,4 @@
-import Windows from "../../containers/Windows";
+import Windows from "../Windows";
 import { Article } from "./styles";
 
 export default function Work() {

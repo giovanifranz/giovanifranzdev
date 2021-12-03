@@ -2,52 +2,41 @@ import { Aside as AsideComponent, Box } from "./styles";
 import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
 import NextLink from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { ReactNode } from "react";
+
+interface LinkProps {
+  children: ReactNode;
+  href: string;
+}
+function Link({ children, href }: LinkProps) {
+  return (
+    <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.9 }}>
+      <NextLink href={href}>
+        <a>{children}</a>
+      </NextLink>
+    </motion.div>
+  );
+}
 
 export default function Aside() {
-  const MotionAside = motion(AsideComponent);
   const MotionBox = motion(Box);
 
-  const containerVariants = {
-    hidden: {
-      opacity: 0,
-      y: "100vh",
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "tween",
-        duration: 0.5,
-      },
-    },
-  };
-
   return (
-    <MotionAside
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <AsideComponent>
       <AnimatePresence>
-        <MotionBox exit={{ y: 1500 }}>
-          <NextLink href="https://www.facebook.com/giovanifranz">
-            <a>
-              <FaFacebook size={32} />
-            </a>
-          </NextLink>
-          <NextLink href="https://www.linkedin.com/in/giovanifranz/">
-            <a>
-              <FaLinkedin size={32} />
-            </a>
-          </NextLink>
-          <NextLink href="https://github.com/giovanifranz">
-            <a>
-              <FaGithub size={32} />
-            </a>
-          </NextLink>
-          <div />
+        <MotionBox>
+          <Link href="https://www.facebook.com/giovanifranz">
+            <FaFacebook size={32} />
+          </Link>
+          <Link href="https://www.linkedin.com/in/giovanifranz/">
+            <FaLinkedin size={32} />
+          </Link>
+          <Link href="https://github.com/giovanifranz">
+            <FaGithub size={32} />
+          </Link>
+          <div id="line" />
         </MotionBox>
       </AnimatePresence>
-    </MotionAside>
+    </AsideComponent>
   );
 }

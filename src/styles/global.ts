@@ -12,6 +12,7 @@ export const GlobalStyles = css`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  
   }
   html {
     @media (min-width: 1080px) {
@@ -20,6 +21,7 @@ export const GlobalStyles = css`
     @media (min-width: 1080px) {
       font-size: 87.5%;
     }
+    overflow: hidden;
   }
   body {
     background: var(--black);
@@ -57,6 +59,10 @@ export const GlobalStyles = css`
     cursor: pointer;
   }
   
+  button:hover {
+    filter: brightness(2);
+  }
+  
   a {
     color: var(--white);
   }
@@ -69,4 +75,6 @@ export const GlobalStyles = css`
     opacity: 0.6;
     cursor: not-allowed;
   }
+
+ 
 `;

@@ -1,4 +1,4 @@
-import Hello from "../components/Hello";
+import Hello from "../containers/Hello";
 
 export default function Home() {
   return <Hello />;

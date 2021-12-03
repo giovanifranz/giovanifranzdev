@@ -19,18 +19,4 @@ export const Box = styled.div`
     font-size: 2.5rem;
     margin-bottom: 2rem;
   }
-
-  button {
-    background-color: transparent;
-    border-radius: 0.5rem;
-    border: 1px solid var(--blue);
-    color: var(--blue);
-    width: 250px;
-    height: 50px;
-    font-size: 1.25rem;
-  }
-
-  button:hover {
-    filter: brightness(2);
-  }
 `;

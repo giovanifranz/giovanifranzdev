@@ -1,7 +1,7 @@
 import { Container, Content } from "./styles";
 import Header from "../../components/Header";
 import Aside from "../../components/Aside";
-import Hello from "../../components/Hello";
+import Hello from "../Hello";
 import { ReactNode } from "react";
 
 interface LayoutProps {
