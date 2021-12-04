@@ -6,9 +6,21 @@ import { AiOutlineMail, AiOutlineArrowDown } from "react-icons/ai";
 import NextLink from "next/link";
 import Button from "../../components/Button";
 import { useRouter } from "next/router";
-export default function More() {
-  const Github = useQuery("github", async () =>
-    api.get("/giovanifranz").then((res) => res.data)
+import { GithubProps } from "../../pages/[slug]";
+
+interface MoreProps {
+  value: GithubProps;
+}
+export default function More({ value }: MoreProps) {
+  const { data, isLoading } = useQuery(
+    "github",
+    async () => {
+      const { data } = await api.get("/giovanifranz");
+      return data;
+    },
+    {
+      initialData: value,
+    }
   );
 
   const router = useRouter();
@@ -21,31 +33,28 @@ export default function More() {
 
   return (
     <>
-      {Github.data && !Github.isLoading && (
+      {data && !isLoading && (
         <Section>
           <article>
-            <Image
-              src={Github.data.avatar_url}
-              height={200}
-              width={200}
-              priority
-            />
+            <Image src={data.avatar_url} height={200} width={200} priority />
             <div>
               <p>
-                {Github.data.bio}
+                {data.bio}
                 <br />
                 <br />
-                Company: {Github.data.company}
+                Company: {data.company}
               </p>
               <div>
                 <AiOutlineMail size={32} />
-                <NextLink href={`mailto:${Github.data.email}`}>
-                  <a>{Github.data.email}</a>
+                <NextLink href={`mailto:${data.email}`}>
+                  <a>{data.email}</a>
                 </NextLink>
               </div>
             </div>
           </article>
-          <Button onClick={handleClick}>Repositórios <AiOutlineArrowDown className="icon" size={30}/></Button>
+          <Button onClick={handleClick}>
+            Repositórios <AiOutlineArrowDown className="icon" />
+          </Button>
         </Section>
       )}
     </>

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Section = styled.section`
-  background-color: var(--black);
+  background-color: var(--gray-dark);
   border: 1px solid var(--blue);
   border-radius: 0.5rem;
   z-index: 99999;

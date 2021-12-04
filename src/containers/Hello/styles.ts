@@ -4,6 +4,15 @@ export const Box = styled.div`
   width: 720px;
   z-index: 0;
 
+  h1,
+  h2,
+  h6 {
+    background: -webkit-linear-gradient(var(--white), var(--gray));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
   h6 {
     font-size: 1.25rem;
     margin-bottom: 1rem;

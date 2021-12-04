@@ -1,7 +1,8 @@
 import { Box } from "./styles";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
-import { useState } from "react"
+import { useState } from "react";
+import { AiOutlineArrowRight } from "react-icons/ai";
 import Button from "../../components/Button";
 
 export default function Hello() {
@@ -47,7 +48,9 @@ export default function Hello() {
               estou sempre estudando e testando tecnologias novas. Venha me
               conhecer <span>&#128075;</span>
             </p>
-            <Button onClick={handleClick}>Mais informações</Button>
+            <Button onClick={handleClick}>
+              Mais informações <AiOutlineArrowRight className="icon"/>
+            </Button>
           </MotionBox>
         )}
       </AnimatePresence>

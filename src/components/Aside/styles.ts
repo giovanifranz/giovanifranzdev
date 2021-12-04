@@ -8,6 +8,7 @@ export const Aside = styled.aside`
   align-items: center;
   position: relative;
   border-right: 1px solid var(--blue);
+  box-shadow: 1px 1px 1px var(--blue);
   background-color: var(--black);
   z-index: 999;
 `;

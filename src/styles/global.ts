@@ -2,17 +2,19 @@ import { css } from "@emotion/react";
 
 export const GlobalStyles = css`
   :root {
-    --blue: #05aff2;
-    --white: #fff;
-    --black: #090c13;
-    --gray: #b1b6c7;
+    --blue: #00a8ff;
+    --blue-dark: #006599;
+    --blue-darker: #00324c;
+    --white: #ffffff;
+    --black: #1d1d1b;
+    --gray: #6f7380;
+    --gray-dark: #333333;
   }
 
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  
   }
   html {
     @media (min-width: 1080px) {
@@ -44,10 +46,6 @@ export const GlobalStyles = css`
   strong {
     font-family: "Inter", sans-serif;
     font-weight: 700;
-    background: -webkit-linear-gradient(var(--white), var(--gray));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
   }
 
   p {
@@ -58,11 +56,11 @@ export const GlobalStyles = css`
   button {
     cursor: pointer;
   }
-  
+
   button:hover {
-    filter: brightness(2);
+    filter: brightness(1.2);
   }
-  
+
   a {
     color: var(--white);
   }
@@ -75,6 +73,4 @@ export const GlobalStyles = css`
     opacity: 0.6;
     cursor: not-allowed;
   }
-
- 
 `;

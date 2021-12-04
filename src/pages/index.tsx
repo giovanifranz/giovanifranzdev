@@ -1,5 +1,5 @@
 import Hello from "../containers/Hello";
 
-export default function Home() {
+export default function App() {
   return <Hello />;
 }

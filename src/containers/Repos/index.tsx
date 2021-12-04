@@ -2,20 +2,32 @@ import { useQuery } from "react-query";
 import { api } from "../../service/api";
 import Card from "../../components/Card";
 import { ReposContainer } from "./styles";
-export function Repos() {
-  const Repos = useQuery("repos", async () =>
-    api.get("/giovanifranz/repos").then((res) => res.data)
+import { GithubReposProps } from "../../pages/[slug]";
+
+interface ReposProps {
+  value: GithubReposProps;
+}
+
+export function Repos({ value }: ReposProps) {
+  const { data, isLoading } = useQuery(
+    "github",
+    async () => {
+      const { data } = await api.get("/giovanifranz/repos");
+      return data;
+    },
+    {
+      initialData: value,
+    }
   );
 
   return (
     <ReposContainer>
-      {Repos.data &&
-        !Repos.isLoading &&
-        Repos.data.map((repo) => {
+      {data &&
+        !isLoading &&
+        data.map((repo) => {
           if (repo.description === null) {
             return;
           }
-
           if (repo.topics.length < 5) {
             return;
           }
