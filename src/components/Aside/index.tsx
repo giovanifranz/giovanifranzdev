@@ -1,7 +1,7 @@
 import { Aside as AsideComponent, Box } from "./styles";
 import { FaFacebook, FaLinkedin, FaGithub } from "react-icons/fa";
 import NextLink from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { ReactNode } from "react";
 
 interface LinkProps {
@@ -19,24 +19,20 @@ function Link({ children, href }: LinkProps) {
 }
 
 export default function Aside() {
-  const MotionBox = motion(Box);
-
   return (
     <AsideComponent>
-      <AnimatePresence>
-        <MotionBox>
-          <Link href="https://www.facebook.com/giovanifranz">
-            <FaFacebook size={32} />
-          </Link>
-          <Link href="https://www.linkedin.com/in/giovanifranz/">
-            <FaLinkedin size={32} />
-          </Link>
-          <Link href="https://github.com/giovanifranz">
-            <FaGithub size={32} />
-          </Link>
-          <div id="line" />
-        </MotionBox>
-      </AnimatePresence>
+      <Box>
+        <Link href="https://www.facebook.com/giovanifranz">
+          <FaFacebook size={32} />
+        </Link>
+        <Link href="https://www.linkedin.com/in/giovanifranz/">
+          <FaLinkedin size={32} />
+        </Link>
+        <Link href="https://github.com/giovanifranz">
+          <FaGithub size={32} />
+        </Link>
+        <div id="line" />
+      </Box>
     </AsideComponent>
   );
 }

@@ -5,8 +5,7 @@ export const Section = styled.section`
   border: 1px solid var(--blue);
   border-radius: 0.5rem;
   z-index: 99999;
-  box-shadow: var(--blue) 0.25rem 0.25rem 0.25rem;
-  margin-top: 150px;
+  box-shadow: var(--blue) 0.15rem 0.15rem 0.15rem;
 
   article {
     header {

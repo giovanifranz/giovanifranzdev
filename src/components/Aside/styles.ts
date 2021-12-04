@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const Aside = styled.aside`
   height: 100vh;
   width: 12rem;
+  padding-top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,6 +20,7 @@ export const Box = styled.div`
   align-items: center;
   position: fixed;
   bottom: 0;
+  height: 35%;
 
   div {
     margin-bottom: 2rem;
@@ -30,7 +32,7 @@ export const Box = styled.div`
 
   #line {
     background-color: var(--white);
-    height: 120px;
+    height: 100%;
     width: 1px;
     margin-bottom: 0;
   }

@@ -12,7 +12,7 @@ export const Box = styled.div`
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  
+
   h6 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
