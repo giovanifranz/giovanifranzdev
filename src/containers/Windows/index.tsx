@@ -3,6 +3,7 @@ import { Section } from "./styles";
 import { IoMdExit } from "react-icons/io";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
+import { variantY } from "../../utils/variants";
 
 interface WindowsProps {
   children: ReactNode;
@@ -11,25 +12,10 @@ interface WindowsProps {
 export default function Windows({ children }: WindowsProps) {
   const router = useRouter();
   const MotionWindows = motion(Section);
-  const [isVisible, setIsVisible] = useState(true);
-
-  const containerVariants = {
-    hidden: {
-      opacity: 0,
-      x: "100vw",
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "spring",
-        stiffness: 80,
-      },
-    },
-  };
+  const [isShow, setIsShow] = useState(true);
 
   function onRequestClose() {
-    setIsVisible(!isVisible);
+    setIsShow(false);
     setTimeout(() => {
       router.push("/");
     }, 250);
@@ -37,7 +23,7 @@ export default function Windows({ children }: WindowsProps) {
 
   return (
     <MotionWindows
-      variants={containerVariants}
+      variants={variantY}
       initial="hidden"
       animate="visible"
       drag
@@ -49,8 +35,8 @@ export default function Windows({ children }: WindowsProps) {
       }}
     >
       <AnimatePresence>
-        {isVisible && (
-          <motion.article exit={{ x: -1500 }}>
+        {isShow && (
+          <motion.article exit={{ y: -1500 }}>
             <header>
               <button onClick={onRequestClose}>
                 <IoMdExit size={32} className="icon" />

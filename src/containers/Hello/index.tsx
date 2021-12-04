@@ -4,25 +4,12 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Button from "../../components/Button";
+import { variantX } from "../../utils/variants";
 
 export default function Hello() {
   const [isVisible, setIsVisible] = useState(true);
   const router = useRouter();
   const MotionBox = motion(Box);
-  const containerVariants = {
-    hidden: {
-      opacity: 0,
-      x: "100vw",
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        type: "tween",
-        duration: 1,
-      },
-    },
-  };
 
   function handleClick() {
     setIsVisible(!isVisible);
@@ -32,11 +19,7 @@ export default function Hello() {
   }
 
   return (
-    <motion.article
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-    >
+    <motion.article variants={variantX} initial="hidden" animate="visible">
       <AnimatePresence>
         {isVisible && (
           <MotionBox exit={{ x: -1500 }}>
@@ -49,7 +32,7 @@ export default function Hello() {
               conhecer <span>&#128075;</span>
             </p>
             <Button onClick={handleClick}>
-              Mais informações <AiOutlineArrowRight className="icon"/>
+              Mais informações <AiOutlineArrowRight className="icon" />
             </Button>
           </MotionBox>
         )}

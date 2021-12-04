@@ -7,11 +7,17 @@ import NextLink from "next/link";
 import Button from "../../components/Button";
 import { useRouter } from "next/router";
 import { GithubProps } from "../../pages/[slug]";
+import { motion, AnimatePresence } from "framer-motion";
+import { variantX, variantY } from "../../utils/variants";
+import { useState } from "react";
 
 interface MoreProps {
   value: GithubProps;
 }
+
 export default function More({ value }: MoreProps) {
+  const [variant, setVariant] = useState(variantX);
+  const [isShow, setIsShow] = useState(true);
   const { data, isLoading } = useQuery(
     "github",
     async () => {
@@ -22,41 +28,48 @@ export default function More({ value }: MoreProps) {
       initialData: value,
     }
   );
-
   const router = useRouter();
-
   function handleClick() {
-    setTimeout(() => {
-      router.push("/repos");
-    }, 250);
+    setVariant(variantY);
+    setIsShow(false);
+    router.push("/repos");
   }
 
+  const MotionSection = motion(Section);
   return (
-    <>
-      {data && !isLoading && (
-        <Section>
-          <article>
-            <Image src={data.avatar_url} height={200} width={200} priority />
-            <div>
-              <p>
-                {data.bio}
-                <br />
-                <br />
-                Company: {data.company}
-              </p>
+    <motion.div variants={variant} initial="hidden" animate="visible">
+      <AnimatePresence>
+        {data && isShow && !isLoading && (
+          <MotionSection exit={{ y: -1500 }}>
+            <article>
+              <Image
+                src={data.avatar_url}
+                height={200}
+                width={200}
+                priority
+                alt={data.name}
+              />
               <div>
-                <AiOutlineMail size={32} />
-                <NextLink href={`mailto:${data.email}`}>
-                  <a>{data.email}</a>
-                </NextLink>
+                <p>
+                  {data.bio}
+                  <br />
+                  <br />
+                  Company: {data.company}
+                </p>
+                <div>
+                  <AiOutlineMail size={32} />
+                  <NextLink href={`mailto:${data.email}`}>
+                    <a>{data.email}</a>
+                  </NextLink>
+                </div>
               </div>
-            </div>
-          </article>
-          <Button onClick={handleClick}>
-            Repositórios <AiOutlineArrowDown className="icon" />
-          </Button>
-        </Section>
-      )}
-    </>
+            </article>
+            <Button onClick={handleClick}>
+              Repositórios <AiOutlineArrowDown className="icon" />
+            </Button>
+          </MotionSection>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }
