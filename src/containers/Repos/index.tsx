@@ -8,7 +8,7 @@ interface ReposProps {
   value: GithubReposProps;
 }
 
-export function Repos({ value }: ReposProps) {
+export default function Repos({ value }: ReposProps) {
   const { data, isLoading } = useQuery(
     "github",
     async () => {

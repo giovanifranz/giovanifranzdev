@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Article } from "./styles";
-import Windows from "../../containers/Windows";
+import Windows from "../Windows";
 
 export default function About() {
   return (

@@ -1,10 +1,12 @@
-import About from "../../components/About";
-import Work from "../../containers/Work";
-import More from "../../containers/More";
-import { api } from "../../service/api";
-import { Repos } from "../../containers/Repos";
-import { useRouter } from "next/router";
 import { GetStaticProps, GetStaticPaths } from "next";
+import { api } from "../../service/api";
+import { useRouter } from "next/router";
+import dynamic from "next/dynamic";
+
+const About = dynamic(() => import("../../containers/About"));
+const Work = dynamic(() => import("../../containers/Work"));
+const More = dynamic(() => import("../../containers/More"));
+const Repos = dynamic(() => import("../../containers/Repos"));
 
 interface SobreProps {
   Github: GithubProps;
