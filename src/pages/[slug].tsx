@@ -9,6 +9,7 @@ const About = dynamic(() => import("../containers/About"));
 const Work = dynamic(() => import("../containers/Work"));
 const More = dynamic<MoreProps>(() => import("../containers/More"));
 const Repos = dynamic<ReposProps>(() => import("../containers/Repos"));
+const Projects = dynamic(() => import("../containers/Projects"));
 
 interface SobreProps {
   Github: GithubProps;
@@ -39,6 +40,7 @@ export default function Home({ Github, GithubRepos }: SobreProps) {
       {route === "/work" && <Work />}
       {route === "/more" && <More value={Github} />}
       {route === "/repos" && <Repos value={GithubRepos} />}
+      {route === "/projects" && <Projects />}
     </>
   );
 }
@@ -50,6 +52,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
       { params: { slug: "work" } },
       { params: { slug: "more" } },
       { params: { slug: "repos" } },
+      { params: { slug: "projects" } },
     ],
     fallback: false,
   };
