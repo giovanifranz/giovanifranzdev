@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useQuery } from "react-query";
 import { api } from "../../service/api";
-import { Section } from "./styles";
+import { Section, ButtonVertical } from "./styles";
 import { AiOutlineMail, AiOutlineArrowDown } from "react-icons/ai";
 import NextLink from "next/link";
 import Button from "../../components/Button";
@@ -11,7 +11,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { variantX, variantY } from "../../utils/variants";
 import { useState } from "react";
 
-interface MoreProps {
+export interface MoreProps {
   value: GithubProps;
 }
 
@@ -63,6 +63,9 @@ export default function More({ value }: MoreProps) {
                   </NextLink>
                 </div>
               </div>
+              <ButtonVertical onClick={() => console.log("teste")}>
+                Projetos <AiOutlineArrowDown className="icon" />
+              </ButtonVertical>
             </article>
             <Button onClick={handleClick}>
               Repositórios <AiOutlineArrowDown className="icon" />

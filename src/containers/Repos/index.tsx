@@ -4,7 +4,7 @@ import Card from "../../components/Card";
 import { ReposContainer } from "./styles";
 import { GithubReposProps } from "../../pages/[slug]";
 
-interface ReposProps {
+export interface ReposProps {
   value: GithubReposProps;
 }
 

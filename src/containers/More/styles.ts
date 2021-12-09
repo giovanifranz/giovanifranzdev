@@ -7,7 +7,7 @@ export const Section = styled.section`
   align-items: center;
 
   article {
-    width: 740px;
+    width: 900px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -40,5 +40,26 @@ export const Section = styled.section`
 
   button {
     margin-top: 3rem;
+  }
+`;
+
+export const ButtonVertical = styled.button`
+  background-color: transparent;
+  border-radius: 0.5rem;
+  padding-right: 1.385rem;
+  padding-left: 2rem;
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  height: 50px;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  word-wrap: break-word;
+  transform: rotate(270deg);
+
+
+  .icon {
+    margin-left: 1rem;
+    font-size: 32px;
   }
 `;
